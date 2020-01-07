@@ -1,9 +1,10 @@
 #target, #target1, #target2 {
-    border: 1px black solid;
+    border: 1px white solid;
     color: antiquewhite;
 }
 
 #stop {
+    margin-top: 2em;
     color: antiquewhite;
 }
 
@@ -12,5 +13,10 @@
 }
 
 #message {
+    margin-top: 0.5em;
     color: antiquewhite;
+}
+
+#numberBox {
+    margin-top: 10em;
 }
