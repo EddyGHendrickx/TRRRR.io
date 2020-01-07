@@ -29,10 +29,23 @@ button.addEventListener("click", function () {
         case true:
             clearInterval(trrrr);
             crement = false;
+            if (i === o && i === u && o === u) {
+                alert("You win");
+            }
+            else if (i === o || i === u || o === u){
+                alert("You win. Kinda..");
+            }
+            else {
+                alert("Loser");
+            }
+            console.log(i,o,u);
+
             break;
         case false:
             trrrr = setInterval(slot, timeout);
             crement = true;
+            console.log(i,o,u);
+
     }
 
 
