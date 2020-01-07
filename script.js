@@ -33,6 +33,8 @@ button.addEventListener("click", function () {
             clearInterval(trrrr);
             crement = false;
             if (i === o && i === u && o === u) {
+                message.style.fontSize = "200px";
+
                 message.innerHTML = "You win";
                 target.style.color = "purple";
                 target1.style.color = "purple";
@@ -40,6 +42,8 @@ button.addEventListener("click", function () {
 
             }
             else if (i === o || i === u || o === u){
+                message.style.fontSize = "100px";
+
                 message.innerHTML = "You win. Kinda...";
                 if (i===o){
                     target.style.color = "green";
@@ -56,12 +60,16 @@ button.addEventListener("click", function () {
                 }
             }
             else {
+
                 message.innerHTML = "Loser";
+
             }
             console.log(i,o,u);
 
             break;
         case false:
+            message.innerHTML = "";
+            message.style.fontSize = "";
             target.style.color = "";
             target1.style.color = "";
             target2.style.color = "";
