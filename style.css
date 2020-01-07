@@ -6,6 +6,7 @@
 #stop {
     margin-top: 2em;
     color: antiquewhite;
+    margin-bottom: 1em;
 }
 
 * {
@@ -18,5 +19,17 @@
 }
 
 #numberBox {
-    margin-top: 10em;
+    margin-top: 5em;
+}
+
+#topText {
+    font-size: 40px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#contentBox {
+    border: solid antiquewhite 3px;
+    border-radius: 25px;
 }
