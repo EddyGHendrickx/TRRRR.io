@@ -39,6 +39,15 @@ button.addEventListener("click", function () {
                     target.style.backgroundColor = "green";
                     target1.style.backgroundColor = "green";
                 }
+                else if(i === u){
+                    target.style.backgroundColor = "green";
+                    target2.style.backgroundColor = "green";
+                }
+                else if(o === u){
+
+                    target2.style.backgroundColor = "green";
+                    target1.style.backgroundColor = "green";
+                }
             }
             else {
                 message.innerHTML = "Loser";
