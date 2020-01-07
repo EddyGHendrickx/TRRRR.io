@@ -7,9 +7,10 @@
     margin-top: 2em;
     color: antiquewhite;
     margin-bottom: 1em;
+    background-color: black;
 }
 
-* {
+body {
     background: url("images/papyrus-dark.png");
 }
 
@@ -32,4 +33,8 @@
 #contentBox {
     border: solid antiquewhite 3px;
     border-radius: 25px;
+}
+
+#coins {
+    color: antiquewhite;
 }
