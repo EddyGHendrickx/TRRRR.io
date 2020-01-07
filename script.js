@@ -2,6 +2,7 @@
 let target = document.getElementById("target");
 let target1 = document.getElementById("target1");
 let target2 = document.getElementById("target2");
+let message = document.getElementById("message");
 
 let i = 0;
 let o = 0;
@@ -30,13 +31,17 @@ button.addEventListener("click", function () {
             clearInterval(trrrr);
             crement = false;
             if (i === o && i === u && o === u) {
-                alert("You win");
+                message.innerHTML = "You win";
             }
             else if (i === o || i === u || o === u){
-                alert("You win. Kinda..");
+                message.innerHTML = "You win. Kinda...";
+                if (i===o){
+                    target.style.backgroundColor = "green";
+                    target1.style.backgroundColor = "green";
+                }
             }
             else {
-                alert("Loser");
+                message.innerHTML = "Loser";
             }
             console.log(i,o,u);
 
