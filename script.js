@@ -20,7 +20,7 @@ function slot(){
 
 }
 
-let timeout = 10;
+let timeout = 20;
 let crement = true;
 let trrrr = setInterval(slot, timeout);
 
@@ -28,25 +28,31 @@ let button = document.getElementById("stop");
 button.addEventListener("click", function () {
     switch (crement) {
         case true:
+
+
             clearInterval(trrrr);
             crement = false;
             if (i === o && i === u && o === u) {
                 message.innerHTML = "You win";
+                target.style.color = "purple";
+                target1.style.color = "purple";
+                target2.style.color = "purple";
+
             }
             else if (i === o || i === u || o === u){
                 message.innerHTML = "You win. Kinda...";
                 if (i===o){
-                    target.style.backgroundColor = "green";
-                    target1.style.backgroundColor = "green";
+                    target.style.color = "green";
+                    target1.style.color = "green";
                 }
                 else if(i === u){
-                    target.style.backgroundColor = "green";
-                    target2.style.backgroundColor = "green";
+                    target.style.color = "green";
+                    target2.style.color = "green";
                 }
                 else if(o === u){
 
-                    target2.style.backgroundColor = "green";
-                    target1.style.backgroundColor = "green";
+                    target2.style.color = "green";
+                    target1.style.color = "green";
                 }
             }
             else {
@@ -56,6 +62,9 @@ button.addEventListener("click", function () {
 
             break;
         case false:
+            target.style.color = "";
+            target1.style.color = "";
+            target2.style.color = "";
             trrrr = setInterval(slot, timeout);
             crement = true;
             console.log(i,o,u);
