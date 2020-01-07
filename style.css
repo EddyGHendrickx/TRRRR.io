@@ -10,3 +10,7 @@
 * {
     background: url("images/papyrus-dark.png");
 }
+
+#message {
+    color: antiquewhite;
+}
