@@ -1,3 +1,12 @@
 #target, #target1, #target2 {
     border: 1px black solid;
 }
+
+#target, #target2 {
+    background: url("images/hotel-wallpaper-black.png");
+    color: whitesmoke;
+}
+#target1 {
+    background: url("images/hotel-wallpaper.png");
+    color: #1b1e21;
+}
