@@ -1,3 +1,39 @@
+let coins = document.getElementById("coins");
+
+
+function Moneys(amount, betAmount) {
+
+    this.amount = amount;
+    this.betAmount = betAmount;
+
+
+    this.bet = function() {
+        
+        this.amount = this.amount - this.betAmount;
+        return this.amount
+    };
+    this.winKinda = function () {
+        this.amount = this.betAmount*3 + this.amount;
+        return amount;
+    };
+
+    this.winBigTime = function () {
+           this.amount = this.betAmount*10 + this.amount;
+           return amount;
+    };
+
+}
+
+
+const moneys1 = new Moneys(10, 1);
+
+
+
+coins.innerHTML = "";
+coins.innerHTML = moneys1.amount;
+
+
+
 
 let target = document.getElementById("target");
 let target1 = document.getElementById("target1");
@@ -29,20 +65,25 @@ button.addEventListener("click", function () {
     switch (crement) {
         case true:
 
-
+            moneys1.bet();
+            coins.innerHTML = "";
+            coins.innerHTML = moneys1.amount;
             clearInterval(trrrr);
             crement = false;
             if (i === o && i === u && o === u) {
-                message.style.fontSize = "200px";
+                message.style.fontSize = "100px";
 
                 message.innerHTML = "You win";
                 target.style.color = "purple";
                 target1.style.color = "purple";
                 target2.style.color = "purple";
+                moneys1.winBigTime();
+                coins.innerHTML = "";
+                coins.innerHTML = moneys1.amount;
 
             }
             else if (i === o || i === u || o === u){
-                message.style.fontSize = "100px";
+                message.style.fontSize = "50px";
 
                 message.innerHTML = "You win. Kinda...";
                 if (i===o){
@@ -58,13 +99,15 @@ button.addEventListener("click", function () {
                     target2.style.color = "green";
                     target1.style.color = "green";
                 }
+                moneys1.winKinda();
+                coins.innerHTML = "";
+                coins.innerHTML = moneys1.amount;
             }
             else {
 
                 message.innerHTML = "Loser";
 
             }
-            console.log(i,o,u);
 
             break;
         case false:
@@ -75,7 +118,6 @@ button.addEventListener("click", function () {
             target2.style.color = "";
             trrrr = setInterval(slot, timeout);
             crement = true;
-            console.log(i,o,u);
 
     }
 
