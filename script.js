@@ -27,8 +27,11 @@ function Moneys(amount) {
 
 
     this.bet = function() {
-        if (inputVal.length == 0) {
+        if (inputVal.length === 0) {
             message.innerHTML = "Please enter an amount you want to bet.";
+        }
+        else if (Number.isInteger(+inputVal) === false) {
+            message.innerHTML = "Please enter a whole number";
         }
         else if (this.amount === 0) {
             message.innerHTML = "You ran out of coins";
@@ -95,11 +98,11 @@ function Moneys(amount) {
 
 function checkInput() {
     inputVal = document.getElementById("inputVal").value;
-    console.log(inputVal);
+    console.log(Number.isInteger(+inputVal));
 
 }
 
-setInterval(checkInput, 1);
+setInterval(checkInput, 100);
 
 const moneys1 = new Moneys(10);
 
