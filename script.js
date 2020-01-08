@@ -1,49 +1,15 @@
 let coins = document.getElementById("coins");
-
-
-function Moneys(amount, betAmount) {
-
-    this.amount = amount;
-    this.betAmount = betAmount;
-
-
-    this.bet = function() {
-        
-        this.amount = this.amount - this.betAmount;
-        return this.amount
-    };
-    this.winKinda = function () {
-        this.amount = this.betAmount*3 + this.amount;
-        return amount;
-    };
-
-    this.winBigTime = function () {
-           this.amount = this.betAmount*10 + this.amount;
-           return amount;
-    };
-
-}
-
-
-const moneys1 = new Moneys(10, 1);
-
-
-
-coins.innerHTML = "";
-coins.innerHTML = moneys1.amount;
-
-
-
+let inputVal = document.getElementById("inputVal");
 
 let target = document.getElementById("target");
 let target1 = document.getElementById("target1");
 let target2 = document.getElementById("target2");
 let message = document.getElementById("message");
+let button = document.getElementById("stop");
 
 let i = 0;
 let o = 0;
 let u = 0;
-
 
 function slot(){
     i = Math.floor(Math.random()*10);
@@ -55,21 +21,22 @@ function slot(){
     target2.innerHTML = u;
 
 }
+function Moneys(amount) {
 
-let timeout = 20;
-let crement = true;
-let trrrr = setInterval(slot, timeout);
+    this.amount = amount;
 
-let button = document.getElementById("stop");
-button.addEventListener("click", function () {
-    switch (crement) {
-        case true:
 
-            moneys1.bet();
-            coins.innerHTML = "";
-            coins.innerHTML = moneys1.amount;
-            clearInterval(trrrr);
-            crement = false;
+    this.bet = function() {
+        if (inputVal.length == 0) {
+            message.innerHTML = "Please enter an amount you want to bet.";
+        }
+        else if (this.amount === 0) {
+            message.innerHTML = "You ran out of coins";
+        }
+        else if (this.amount - inputVal < 0) {
+            message.innerHTML = "You dont have enough credits.";
+        }
+        else {
             if (i === o && i === u && o === u) {
                 message.style.fontSize = "100px";
 
@@ -108,19 +75,78 @@ button.addEventListener("click", function () {
                 message.innerHTML = "Loser";
 
             }
+            this.amount = this.amount - inputVal;
+            return this.amount;
+        }
+
+    };
+    this.winKinda = function () {
+        this.amount = inputVal*3 + this.amount;
+        return this.amount;
+    };
+
+    this.winBigTime = function () {
+        this.amount = inputVal*10 + this.amount;
+        return this.amount;
+    };
+
+}
+
+
+function checkInput() {
+    inputVal = document.getElementById("inputVal").value;
+    console.log(inputVal);
+
+}
+
+setInterval(checkInput, 1);
+
+const moneys1 = new Moneys(10);
+
+
+
+coins.innerHTML = "";
+coins.innerHTML = moneys1.amount;
+
+
+
+
+
+
+
+
+let timeout = 20;
+let crement = true;
+let trrrr = setInterval(slot, timeout);
+
+button.addEventListener("click", function () {
+    switch (crement) {
+        case true:
+
+            coins.innerHTML = "";
+
+            moneys1.bet();
+            coins.innerHTML = moneys1.amount;
+            clearInterval(trrrr);
+            crement = false;
+
 
             break;
         case false:
-            message.innerHTML = "";
-            message.style.fontSize = "";
-            target.style.color = "";
-            target1.style.color = "";
-            target2.style.color = "";
-            trrrr = setInterval(slot, timeout);
-            crement = true;
 
+            if (moneys1.amount === 0) {
+                message.innerHTML = "You don't have enough credits.";
+            }
+            else {
+                message.innerHTML = "";
+                message.style.fontSize = "";
+                target.style.color = "";
+                target1.style.color = "";
+                target2.style.color = "";
+                trrrr = setInterval(slot, timeout);
+                crement = true;
+            }
     }
 
 
 });
-
