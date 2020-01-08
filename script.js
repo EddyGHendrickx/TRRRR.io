@@ -50,6 +50,7 @@ function Moneys(amount) {
                 moneys1.winBigTime();
                 coins.innerHTML = "";
                 coins.innerHTML = moneys1.amount;
+                alert("You are a big boy.")
 
             }
             else if (i === o || i === u || o === u){
@@ -89,7 +90,7 @@ function Moneys(amount) {
     };
 
     this.winBigTime = function () {
-        this.amount = inputVal*10 + this.amount;
+        this.amount = inputVal*50 + this.amount;
         return this.amount;
     };
 
@@ -104,7 +105,7 @@ function checkInput() {
 
 setInterval(checkInput, 100);
 
-const moneys1 = new Moneys(10);
+const moneys1 = new Moneys(100);
 
 
 
