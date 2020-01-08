@@ -12,6 +12,8 @@
 
 body {
     background: url("images/papyrus-dark.png");
+    font-family: 'Satisfy', cursive;
+
 }
 
 #message {
